@@ -1,0 +1,29 @@
+[project]
+name = "text-to-sql-poc"
+version = "0.1.0"
+description = "Matrix VC Text-to-SQL PoC"
+readme = "PRD.md"
+requires-python = ">=3.12"
+dependencies = [
+    "langchain>=1.1",
+    "langchain-openai",
+    "python-dotenv",
+    "rich",
+    "pydantic",
+    "pydantic-settings",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+]
+
+[project.scripts]
+text-to-sql = "text_to_sql.__main__:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/text_to_sql"]
