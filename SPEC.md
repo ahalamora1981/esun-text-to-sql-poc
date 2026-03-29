@@ -510,6 +510,21 @@ class Settings(BaseSettings):
 
 使用 `rich` 库实现带颜色的 REPL 交互界面。
 
+### 启动方式
+
+```bash
+# 初始化测试数据库（首次运行）
+uv run python data/init_db.py
+
+# 正常启动
+uv run text-to-sql
+
+# 带 debug 模式（显示 SQL 执行过程）
+uv run text-to-sql --debug
+```
+
+> 前提条件：`.env` 文件已配置好 `OPENAI_API_KEY`、`OPENAI_BASE_URL`、`OPENAI_MODEL` 和 `DB_PATH`。
+
 ### 交互命令
 
 | 命令 | 说明 |
