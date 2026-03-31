@@ -13,4 +13,10 @@ wheels/
 .env
 
 # Database
-data/vc_test.db
+backend/data/vc_test.db
+backend/data/sessions.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
