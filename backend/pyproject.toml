@@ -13,6 +13,7 @@ dependencies = [
     "fastapi",
     "uvicorn[standard]",
     "langgraph-checkpoint-sqlite>=3.0.3",
+    "pyyaml",
 ]
 
 [project.optional-dependencies]

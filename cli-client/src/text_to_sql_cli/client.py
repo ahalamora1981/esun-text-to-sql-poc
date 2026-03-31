@@ -1,14 +1,17 @@
 import json
+from pathlib import Path
 
 import httpx
 
 from pydantic_settings import BaseSettings
 
+CLI_DIR = Path(__file__).resolve().parent.parent.parent
+
 
 class ClientSettings(BaseSettings):
     backend_url: str = "http://127.0.0.1:8000"
 
-    model_config = {"env_file": ".env", "env_prefix": ""}
+    model_config = {"env_file": str(CLI_DIR / ".env"), "env_prefix": ""}
 
 
 class BackendClient:

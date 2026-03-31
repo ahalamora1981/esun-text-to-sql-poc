@@ -959,6 +959,7 @@ dependencies = [
     { name = "pydantic" },
     { name = "pydantic-settings" },
     { name = "python-dotenv" },
+    { name = "pyyaml" },
     { name = "uvicorn", extra = ["standard"] },
 ]
 
@@ -979,6 +980,7 @@ requires-dist = [
     { name = "pydantic-settings" },
     { name = "pytest", marker = "extra == 'dev'" },
     { name = "python-dotenv" },
+    { name = "pyyaml" },
     { name = "uvicorn", extras = ["standard"] },
 ]
 provides-extras = ["dev"]
