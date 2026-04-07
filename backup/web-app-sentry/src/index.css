@@ -1,0 +1,446 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+/* ============================================
+   SENTRY DESIGN SYSTEM - Text-to-SQL Web App
+   ============================================ */
+
+/* Font Face for Dammit Sans (fallback to Rubik if not available) */
+@font-face {
+  font-family: 'Dammit Sans';
+  src: local('Dammit Sans'), local('Rubik');
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+/* ============================================
+   CSS CUSTOM PROPERTIES - Color System
+   ============================================ */
+:root {
+  /* Primary Brand Colors */
+  --color-deep-purple: #1f1633;
+  --color-darker-purple: #150f23;
+  --color-border-purple: #362d59;
+  
+  /* Accent Colors */
+  --color-sentry-purple: #6a5fc1;
+  --color-muted-purple: #79628c;
+  --color-deep-violet: #422082;
+  --color-lime-green: #c2ef4e;
+  --color-coral: #ffb287;
+  --color-pink: #fa7faa;
+  
+  /* Text Colors */
+  --color-pure-white: #ffffff;
+  --color-light-gray: #e5e7eb;
+  --color-code-yellow: #dcdcaa;
+  
+  /* Surface & Overlay */
+  --color-glass-white: rgba(255, 255, 255, 0.18);
+  --color-glass-dark: rgba(54, 22, 107, 0.14);
+  --color-input-white: #ffffff;
+  --color-input-border: #cfcfdb;
+  
+  /* Shadows */
+  --shadow-ambient: rgba(22, 15, 36, 0.9) 0px 4px 4px 9px;
+  --shadow-button-hover: rgba(0, 0, 0, 0.18) 0px 0.5rem 1.5rem;
+  --shadow-card: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px;
+  --shadow-inset: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px inset;
+  --shadow-surface: rgba(0, 0, 0, 0.08) 0px 2px 8px;
+  
+  /* Typography Scale */
+  --font-display: 'Dammit Sans', 'Rubik', -apple-system, system-ui, sans-serif;
+  --font-primary: 'Rubik', -apple-system, system-ui, 'Segoe UI', Helvetica, Arial, sans-serif;
+  --font-mono: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  
+  /* Border Radius Scale */
+  --radius-minimal: 6px;
+  --radius-standard: 8px;
+  --radius-comfortable: 12px;
+  --radius-button: 13px;
+  --radius-pill: 18px;
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color-deep-purple);
+  color: var(--color-pure-white);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   TYPOGRAPHY UTILITIES
+   ============================================ */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-primary {
+  font-family: var(--font-primary);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Uppercase labels with letter-spacing */
+.label-uppercase {
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+}
+
+.label-micro {
+  text-transform: uppercase;
+  letter-spacing: 0.25px;
+  font-size: 0.63rem;
+  font-weight: 600;
+  line-height: 1.8;
+}
+
+/* ============================================
+   BUTTON STYLES - Sentry Design System
+   ============================================ */
+
+/* Primary Muted Purple Button */
+.btn-primary {
+  background-color: var(--color-muted-purple);
+  color: var(--color-pure-white);
+  border: 1px solid #584674;
+  border-radius: var(--radius-button);
+  padding: 8px 16px;
+  font-family: var(--font-primary);
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.14;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+  box-shadow: var(--shadow-inset);
+  transition: all 0.2s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary:hover:not(:disabled) {
+  box-shadow: var(--shadow-button-hover);
+  transform: translateY(-1px);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: var(--shadow-inset);
+}
+
+/* Glass White Button */
+.btn-glass {
+  background-color: var(--color-glass-white);
+  backdrop-filter: blur(18px) saturate(180%);
+  color: var(--color-pure-white);
+  border: none;
+  border-radius: var(--radius-comfortable);
+  padding: 8px 12px;
+  font-family: var(--font-primary);
+  font-size: 0.88rem;
+  font-weight: 500;
+  line-height: 1.14;
+  box-shadow: var(--shadow-surface);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-glass:hover:not(:disabled) {
+  background-color: var(--color-glass-dark);
+}
+
+/* White Solid Button */
+.btn-white {
+  background-color: var(--color-pure-white);
+  color: var(--color-deep-purple);
+  border: none;
+  border-radius: var(--radius-standard);
+  padding: 12px 16px;
+  font-family: var(--font-primary);
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.14;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-white:hover:not(:disabled) {
+  background-color: var(--color-sentry-purple);
+  color: var(--color-pure-white);
+}
+
+.btn-white:focus {
+  background-color: var(--color-coral);
+  color: var(--color-deep-purple);
+  outline: 2px solid var(--color-sentry-purple);
+  outline-offset: 2px;
+}
+
+/* Deep Violet Button */
+.btn-violet {
+  background-color: var(--color-deep-violet);
+  color: var(--color-pure-white);
+  border: none;
+  border-radius: var(--radius-standard);
+  padding: 8px 16px;
+  font-family: var(--font-primary);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-violet:hover:not(:disabled) {
+  background-color: var(--color-sentry-purple);
+}
+
+/* Lime Accent Button */
+.btn-lime {
+  background-color: var(--color-lime-green);
+  color: var(--color-deep-purple);
+  border: none;
+  border-radius: var(--radius-standard);
+  padding: 8px 16px;
+  font-family: var(--font-primary);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-lime:hover:not(:disabled) {
+  background-color: #b8e045;
+  box-shadow: var(--shadow-button-hover);
+}
+
+/* ============================================
+   INPUT STYLES
+   ============================================ */
+.input-sentry {
+  background-color: var(--color-input-white);
+  color: var(--color-deep-purple);
+  border: 1px solid var(--color-input-border);
+  border-radius: var(--radius-minimal);
+  padding: 8px 12px;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: all 0.2s ease;
+}
+
+.input-sentry:focus {
+  outline: none;
+  border-color: var(--color-input-border);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 10px inset;
+}
+
+.input-dark {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--color-pure-white);
+  border: 1px solid var(--color-border-purple);
+  border-radius: var(--radius-minimal);
+  padding: 8px 12px;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  line-height: 1.5;
+  transition: all 0.2s ease;
+}
+
+.input-dark:focus {
+  outline: none;
+  border-color: var(--color-sentry-purple);
+  box-shadow: 0 0 0 2px rgba(106, 95, 193, 0.3);
+}
+
+.input-dark::placeholder {
+  color: var(--color-light-gray);
+  opacity: 0.6;
+}
+
+/* ============================================
+   CARD & CONTAINER STYLES
+   ============================================ */
+.card-sentry {
+  background-color: rgba(31, 22, 51, 0.8);
+  border: 1px solid var(--color-border-purple);
+  border-radius: var(--radius-comfortable);
+  box-shadow: var(--shadow-card);
+}
+
+.card-glass {
+  background-color: var(--color-glass-white);
+  backdrop-filter: blur(18px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-comfortable);
+  box-shadow: var(--shadow-card);
+}
+
+/* ============================================
+   LINK STYLES
+   ============================================ */
+.link-sentry {
+  color: var(--color-pure-white);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.link-sentry:hover {
+  color: var(--color-sentry-purple);
+}
+
+.link-purple {
+  color: var(--color-sentry-purple);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.link-purple:hover {
+  text-decoration: underline;
+}
+
+.link-lime {
+  color: var(--color-lime-green);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.link-lime:hover {
+  color: var(--color-sentry-purple);
+}
+
+/* ============================================
+   SCROLLBAR STYLES
+   ============================================ */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-darker-purple);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-purple);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-muted-purple);
+}
+
+/* ============================================
+   CODE & SYNTAX HIGHLIGHTING
+   ============================================ */
+.code-block {
+  background-color: var(--color-darker-purple);
+  border: 1px solid var(--color-border-purple);
+  border-radius: var(--radius-standard);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.code-inline {
+  background-color: rgba(106, 95, 193, 0.2);
+  color: var(--color-code-yellow);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+.text-gradient-lime {
+  background: linear-gradient(135deg, var(--color-lime-green) 0%, #d4f77a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-gradient-purple {
+  background: linear-gradient(180deg, var(--color-deep-purple) 0%, var(--color-darker-purple) 100%);
+}
+
+.glass-panel {
+  background: var(--color-glass-white);
+  backdrop-filter: blur(18px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Ambient glow effect */
+.ambient-glow {
+  box-shadow: var(--shadow-ambient);
+}
+
+/* Focus ring for accessibility */
+.focus-ring:focus-visible {
+  outline: 2px solid var(--color-sentry-purple);
+  outline-offset: 2px;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes pulse-lime {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-pulse-lime {
+  animation: pulse-lime 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ============================================
+   SELECTION STYLES
+   ============================================ */
+::selection {
+  background-color: var(--color-sentry-purple);
+  color: var(--color-pure-white);
+}
